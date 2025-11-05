@@ -14,24 +14,18 @@ const { NotImplementedError } = require('../lib/errors');
  */
 class Stack {
   constructor() {
-    this.storage = {};
-    this.size = 0;
-
+    this.items = [];
   }
   push(value) {
-    this.size ++;
-    this.storage[this.size] = value;
+    this.items.push(value);
   }
 
   pop() {
-    let removed = this.storage[this.size];
-    delete this.storage[this.size];
-    this.size --;
-    return removed;
+    return this.items.pop()
   }
 
   peek() {
-    return this.storage[this.size];
+    return this.items.length > 0 ? this.items[this.items.length - 1] : undefined;
   }
 }
 
